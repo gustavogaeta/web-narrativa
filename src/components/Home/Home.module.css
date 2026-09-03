@@ -1,0 +1,247 @@
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── Background ───────────────────────────────────────── */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: sepia(0.6) contrast(1.1) brightness(0.55);
+  animation: flicker 6s ease-in-out infinite;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 9, 7, 0.5) 0%,
+    rgba(10, 9, 7, 0.25) 40%,
+    rgba(10, 9, 7, 0.75) 100%
+  );
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 9, 7, 0.85) 100%);
+}
+
+/* ── Scan Lines ───────────────────────────────────────── */
+.scanLines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.06) 3px,
+    rgba(0, 0, 0, 0.06) 4px
+  );
+}
+
+/* ── Content ──────────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+/* ── Visibility transitions ───────────────────────────── */
+.year, .mainTitle, .subtitle, .divLine,
+.albumRef, .startBtn, .controls {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Year ─────────────────────────────────────────────── */
+.year {
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--color-yellow-old);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  transition-delay: 0s;
+}
+
+/* ── Main title ───────────────────────────────────────── */
+.mainTitle {
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 10vw, 6rem);
+  color: var(--color-cream);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.8), 0 0 60px rgba(139,26,26,0.2);
+  margin-bottom: 1.2rem;
+  transition-delay: 0.1s;
+  animation: flicker 8s ease-in-out infinite 1s;
+}
+
+/* ── Subtitle ─────────────────────────────────────────── */
+.subtitle {
+  font-family: var(--font-italic);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-parchment);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.2rem;
+  transition-delay: 0.15s;
+}
+
+/* ── Divider line ─────────────────────────────────────── */
+.divLine {
+  width: 80px;
+  height: 1px;
+  background: var(--color-crimson);
+  margin: 0 auto 1.2rem;
+  transition-delay: 0.15s;
+}
+
+/* ── Album reference ──────────────────────────────────── */
+.albumRef {
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  color: var(--color-faded);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  transition-delay: 0.2s;
+}
+.albumRef em {
+  color: var(--color-aged);
+  font-style: normal;
+}
+
+/* ── Start button ─────────────────────────────────────── */
+.startBtn {
+  display: inline-block;
+  font-family: var(--font-typewriter);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  letter-spacing: 0.16em;
+  color: var(--color-cream);
+  background: transparent;
+  border: 1px solid var(--color-crimson);
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  transition-delay: 0.25s;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.startBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-crimson);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.startBtn:hover::before,
+.startBtn:focus-visible::before {
+  opacity: 0.2;
+}
+.startBtn:hover,
+.startBtn:focus-visible {
+  border-color: var(--color-crimson-lt);
+  color: var(--color-white-paper);
+  box-shadow: 0 0 20px rgba(139, 26, 26, 0.35);
+  outline: none;
+  letter-spacing: 0.2em;
+}
+
+/* ── Controls ─────────────────────────────────────────── */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  transition-delay: 0.3s;
+}
+
+.controlBtn {
+  background: none;
+  border: none;
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--color-faded);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+  padding: 0.25rem 0.5rem;
+}
+.controlBtn:hover, .controlBtn:focus-visible {
+  color: var(--color-aged);
+  outline: none;
+}
+
+.controlDivider {
+  color: var(--color-sepia);
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+
+/* ── Skip button ──────────────────────────────────────── */
+.skipBtn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 3;
+  background: none;
+  border: 1px solid rgba(122, 96, 64, 0.3);
+  color: var(--color-faded);
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.skipBtn:hover, .skipBtn:focus-visible {
+  color: var(--color-aged);
+  border-color: var(--color-sepia);
+  outline: none;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92%  { opacity: 1; }
+  93%  { opacity: 0.88; }
+  94%  { opacity: 1; }
+  96%  { opacity: 0.93; }
+  97%  { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .content { padding: 1.5rem 1rem; }
+  .controls { flex-direction: column; gap: 0.3rem; }
+  .controlDivider { display: none; }
+}

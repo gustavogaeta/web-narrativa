@@ -1,0 +1,92 @@
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--color-sepia);
+  border-left: 3px solid var(--color-crimson);
+  color: var(--color-cream);
+  font-family: var(--font-typewriter);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-crimson);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 0;
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  opacity: 0.08;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  border-color: var(--color-crimson);
+  border-left-color: var(--color-crimson-lt);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(139, 26, 26, 0.4);
+}
+
+.btn:hover .label,
+.btn:focus-visible .label {
+  color: var(--color-white-paper);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.sublabel {
+  position: relative;
+  z-index: 1;
+  font-size: 0.78rem;
+  color: var(--color-faded);
+  margin-top: 0.25rem;
+  font-style: italic;
+  text-transform: none;
+  font-family: var(--font-body);
+  letter-spacing: 0.02em;
+}
+
+/* Final decision variant */
+.final {
+  border-left-width: 4px;
+  padding: 1.2rem 1.8rem;
+}
+
+.final .label {
+  font-size: 1rem;
+}
+
+/* Disabled */
+.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .btn {
+    padding: 0.9rem 1.1rem;
+    font-size: 0.88rem;
+  }
+  .label { letter-spacing: 0.03em; }
+}

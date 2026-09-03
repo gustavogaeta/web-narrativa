@@ -1,0 +1,182 @@
+.wrapper {
+  min-height: 100vh;
+  padding: 3rem 1.5rem 4rem;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.stamp {
+  position: absolute;
+  top: 3rem;
+  right: 1.5rem;
+  font-family: var(--font-typewriter);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-crimson);
+  border: 2px solid var(--color-crimson);
+  padding: 0.2rem 0.6rem;
+  opacity: 0.35;
+  transform: rotate(-12deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.section {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--color-yellow-old);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: var(--color-cream);
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-crimson), transparent);
+  opacity: 0.5;
+}
+
+/* ── Document style ───────────────────────────────────── */
+.doc {
+  font-family: var(--font-typewriter);
+  border: 1px solid rgba(122, 96, 64, 0.3);
+  padding: 1.5rem 2rem;
+  background: rgba(10, 9, 7, 0.4);
+  position: relative;
+}
+
+.doc::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  border: 1px solid rgba(122, 96, 64, 0.15);
+  z-index: -1;
+}
+
+.row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(122, 96, 64, 0.2);
+  align-items: flex-start;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-faded);
+  min-width: 160px;
+  flex-shrink: 0;
+  padding-top: 0.1em;
+}
+
+.rowValue {
+  font-size: 0.85rem;
+  color: var(--color-cream);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.separator {
+  height: 1px;
+  background: rgba(122, 96, 64, 0.3);
+  margin: 0.5rem 0;
+}
+
+.nameList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.nameItem::before {
+  content: '▸ ';
+  color: var(--color-crimson);
+  font-size: 0.75rem;
+}
+
+/* ── Footer ───────────────────────────────────────────── */
+.footer {
+  margin-top: 2rem;
+  border-left: 2px solid rgba(122, 96, 64, 0.3);
+  padding-left: 1rem;
+}
+
+.disclaimer {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--color-faded);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ── Actions ──────────────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.backBtn {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  background: var(--color-crimson);
+  color: var(--color-cream);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.backBtn:hover, .backBtn:focus-visible {
+  background: var(--color-crimson-lt);
+  outline: none;
+}
+
+.aboutBtn {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  background: none;
+  color: var(--color-aged);
+  border: 1px solid var(--color-sepia);
+  padding: 0.75rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.aboutBtn:hover, .aboutBtn:focus-visible {
+  color: var(--color-cream);
+  border-color: var(--color-cream);
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .stamp { display: none; }
+  .rowLabel { min-width: 110px; }
+  .doc { padding: 1rem 1.2rem; }
+  .actions { flex-direction: column; }
+}

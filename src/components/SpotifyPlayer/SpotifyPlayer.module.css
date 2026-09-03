@@ -1,0 +1,118 @@
+.wrapper {
+  border: 1px solid rgba(122, 96, 64, 0.35);
+  margin-bottom: 1.5rem;
+  background: rgba(10, 9, 7, 0.5);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-aged);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.toggle:hover, .toggle:focus-visible {
+  color: var(--color-cream);
+  outline: none;
+}
+
+.vinylIcon { font-size: 1rem; }
+.toggleLabel { flex: 1; }
+.arrow { font-size: 0.65rem; color: var(--color-faded); }
+
+.content {
+  border-top: 1px solid rgba(122, 96, 64, 0.25);
+  padding: 1rem;
+}
+
+.spotifyFrame { border-radius: 4px; }
+
+/* ── Placeholder ─────────────────────────────────────── */
+.placeholder {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+/* Vinyl record decoration */
+.vinyl {
+  flex-shrink: 0;
+}
+.vinylOuter {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #2a2520, #0d0b09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 2px var(--color-sepia), inset 0 0 8px rgba(0,0,0,0.8);
+  animation: spin 8s linear infinite;
+}
+.vinylInner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-parchment);
+  box-shadow: 0 0 0 3px #1a1510, 0 0 0 5px var(--color-sepia);
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.albumInfo { flex: 1; }
+
+.albumTitle {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--color-cream);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.1rem;
+}
+.albumYear {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  color: var(--color-yellow-old);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+.albumNote {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--color-faded);
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  border: 1px dashed rgba(122,96,64,0.4);
+  padding: 0.4rem 0.6rem;
+}
+
+.trackList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 1rem;
+}
+.track {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--color-aged);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.trackDot { color: var(--color-crimson); font-size: 0.65rem; }
+
+@media (max-width: 500px) {
+  .placeholder { flex-direction: column; align-items: center; }
+  .trackList { grid-template-columns: 1fr; }
+}

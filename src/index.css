@@ -1,0 +1,177 @@
+/* ================================================================
+   O MISTÉRIO DE 1973 — Design System & Global Styles
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ── Tokens ───────────────────────────────────────────────────── */
+:root {
+  --color-black:       #0a0907;
+  --color-dark:        #111009;
+  --color-ink:         #1a1712;
+  --color-crimson:     #8b1a1a;
+  --color-crimson-lt:  #b22222;
+  --color-cream:       #e8dfc8;
+  --color-parchment:   #d4c9ae;
+  --color-aged:        #c4b89a;
+  --color-faded:       #a09070;
+  --color-yellow-old:  #c9a84c;
+  --color-sepia:       #7a6040;
+  --color-white-paper: #f0e8d5;
+
+  --font-title:    'Special Elite', cursive;
+  --font-body:     'Libre Baskerville', Georgia, serif;
+  --font-typewriter: 'Courier Prime', 'Courier New', monospace;
+  --font-italic:   'IM Fell English', serif;
+
+  --transition-slow:   0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s ease;
+  --transition-fast:   0.15s ease;
+
+  --noise-opacity: 0.06;
+  --grain-size:    200px;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  line-height: 1.8;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── Grain Overlay ────────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: var(--grain-size);
+  opacity: var(--noise-opacity);
+  animation: grain 0.5s steps(1) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10%  { transform: translate(-2%, -3%); }
+  20%  { transform: translate(3%, 1%); }
+  30%  { transform: translate(-1%, 4%); }
+  40%  { transform: translate(2%, -2%); }
+  50%  { transform: translate(-3%, 2%); }
+  60%  { transform: translate(1%, -1%); }
+  70%  { transform: translate(-2%, 3%); }
+  80%  { transform: translate(3%, -2%); }
+  90%  { transform: translate(-1%, 1%); }
+}
+
+/* ── Typography ───────────────────────────────────────────────── */
+h1, h2, h3 {
+  font-family: var(--font-title);
+  color: var(--color-cream);
+  letter-spacing: 0.04em;
+}
+
+p { margin-bottom: 1em; }
+
+a {
+  color: var(--color-yellow-old);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover { color: var(--color-cream); }
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-sepia); border-radius: 3px; }
+
+/* ── Utilities ────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-sepia);
+  opacity: 0.4;
+  margin: 2rem 0;
+}
+
+/* ── Fade Transition ──────────────────────────────────────────── */
+.scene-enter {
+  animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Typewriter cursor ────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--color-cream);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 0.9s step-end infinite;
+}
+
+/* ── Flicker ──────────────────────────────────────────────────── */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92%  { opacity: 1; }
+  93%  { opacity: 0.85; }
+  94%  { opacity: 1; }
+  96%  { opacity: 0.9; }
+  97%  { opacity: 1; }
+}
+
+/* ── Reduce Motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}

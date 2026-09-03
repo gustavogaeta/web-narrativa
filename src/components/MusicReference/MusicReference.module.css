@@ -1,0 +1,51 @@
+.wrapper {
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-left: 3px solid var(--color-yellow-old);
+  background: rgba(201, 168, 76, 0.05);
+  padding: 0.9rem 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.icon { font-size: 0.9rem; }
+
+.label {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--color-yellow-old);
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-italic);
+  font-size: 1rem;
+  color: var(--color-cream);
+  margin-bottom: 0.4rem;
+}
+
+.separator { color: var(--color-sepia); }
+
+.theme {
+  font-style: normal;
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  color: var(--color-yellow-old);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.note {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-aged);
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
