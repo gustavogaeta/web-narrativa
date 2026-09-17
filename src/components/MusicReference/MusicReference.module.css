@@ -1,51 +1,116 @@
 .wrapper {
+  background: linear-gradient(135deg, rgba(139, 26, 26, 0.12) 0%, rgba(201, 168, 76, 0.08) 100%);
   border: 1px solid rgba(201, 168, 76, 0.3);
   border-left: 3px solid var(--color-yellow-old);
-  background: rgba(201, 168, 76, 0.05);
-  padding: 0.9rem 1.2rem;
-  margin: 1.5rem 0;
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
 }
 
 .header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
-.icon { font-size: 0.9rem; }
+.icon {
+  font-size: 1.1rem;
+}
 
 .label {
   font-family: var(--font-typewriter);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
   color: var(--color-yellow-old);
   text-transform: uppercase;
+  font-weight: 700;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .title {
   font-family: var(--font-italic);
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--color-cream);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0;
 }
 
-.separator { color: var(--color-sepia); }
+.separator {
+  color: var(--color-faded);
+}
 
 .theme {
-  font-style: normal;
-  font-family: var(--font-typewriter);
-  font-size: 0.8rem;
   color: var(--color-yellow-old);
-  text-transform: uppercase;
+  font-style: normal;
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .note {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--color-aged);
   font-style: italic;
   line-height: 1.6;
-  margin: 0;
+  margin-bottom: 0;
+}
+
+/* ── Spotify Section ──────────────────────────────────── */
+.spotifySection {
+  margin-top: 1rem;
+}
+
+.revealBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(30, 215, 96, 0.1);
+  border: 1px solid rgba(30, 215, 96, 0.3);
+  border-radius: 4px;
+  color: #1ed760;
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  width: 100%;
+  justify-content: center;
+}
+
+.revealBtn:hover {
+  background: rgba(30, 215, 96, 0.2);
+  border-color: rgba(30, 215, 96, 0.5);
+  transform: translateY(-1px);
+}
+
+.spotifyLogo {
+  display: flex;
+  align-items: center;
+}
+
+.revealArrow {
+  font-size: 0.75rem;
+  margin-left: auto;
+}
+
+.iframeWrapper {
+  border-radius: 6px;
+  overflow: hidden;
+  animation: slideDown 0.4s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.spotifyFrame {
+  display: block;
+  border-radius: 6px;
 }

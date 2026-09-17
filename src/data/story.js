@@ -110,6 +110,7 @@ export const STORY = {
       title: 'Sangue Latino',
       theme: 'identidade',
       note: 'Helena usou esta música como primeira pista — uma questão de identidade, de origem, de quem se é quando o mundo quer que você seja outra coisa.',
+      spotifyId: '2DREhftHdD8pRmNdSs6nyF',
     },
     choices: [
       { label: '[ ENTRAR NO TEATRO ]', sublabel: 'Usar a entrada lateral entreaberta', next: 'teatro_interno' },
@@ -161,6 +162,7 @@ export const STORY = {
       title: 'Primavera nos Dentes',
       theme: 'resistência',
       note: 'Para Helena, esta música representava a resistência — a ideia de que mesmo no inverno mais longo, algo sempre tenta crescer.',
+      spotifyId: '3wRe1E7Lc4Ah05D45YRNrT',
     },
     choices: [
       { label: '[ USAR A CHAVE ]', sublabel: 'Descobrir o que a chave abre', next: 'usar_chave' },
@@ -186,6 +188,7 @@ export const STORY = {
       title: 'Primavera nos Dentes',
       theme: 'resistência',
       note: 'Para Helena, esta música representava a resistência — a ideia de que mesmo no inverno mais longo, algo sempre tenta crescer.',
+      spotifyId: '3wRe1E7Lc4Ah05D45YRNrT',
     },
     choices: [
       { label: '[ USAR A CHAVE ]', sublabel: 'Descobrir o que a chave abre', next: 'usar_chave' },

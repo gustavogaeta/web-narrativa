@@ -92,6 +92,7 @@ export default function FinalScreen({ sceneId }) {
           title={scene.musicRef.title}
           theme={scene.musicRef.theme}
           note={scene.musicRef.note}
+          spotifyId={scene.musicRef.spotifyId}
         />
       )}
 

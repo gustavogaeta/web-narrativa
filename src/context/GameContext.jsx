@@ -41,6 +41,7 @@ function reducer(state, action) {
     case 'TOGGLE_REDUCE_MOTION': {
       return { ...state, reduceMotion: !state.reduceMotion };
     }
+
     case 'RESTART': {
       return { ...initialState };
     }
@@ -73,6 +74,8 @@ export function GameProvider({ children }) {
   const toggleReduceMotion = useCallback(() => {
     dispatch({ type: 'TOGGLE_REDUCE_MOTION' });
   }, []);
+
+
 
   const restart = useCallback(() => {
     dispatch({ type: 'RESTART' });

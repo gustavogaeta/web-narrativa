@@ -99,6 +99,7 @@ export default function StoryScene({ sceneId }) {
               title={scene.musicRef.title}
               theme={scene.musicRef.theme}
               note={scene.musicRef.note}
+              spotifyId={scene.musicRef.spotifyId}
             />
           )}
 

@@ -5,6 +5,7 @@ import FinalScreen from './components/FinalScreen/FinalScreen';
 import About from './components/About/About';
 import Credits from './components/Credits/Credits';
 import Navbar from './components/Navbar/Navbar';
+
 import { STORY } from './data/story';
 
 const ENDING_SCENES = ['final_verdade', 'final_armadilha', 'final_silencio'];

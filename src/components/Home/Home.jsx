@@ -5,6 +5,7 @@ import styles from './Home.module.css';
 export default function Home() {
   const { navigate, toggleReduceMotion, reduceMotion } = useGame();
   const [phase, setPhase] = useState('dark'); // dark → title → subtitle → button
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     if (reduceMotion) {
@@ -59,7 +60,7 @@ export default function Home() {
         <button
           id="start-investigation"
           className={`${styles.startBtn} ${phase === 'button' ? styles.visible : ''}`}
-          onClick={() => navigate('intro')}
+          onClick={() => setShowPopup(true)}
           aria-label="Iniciar investigação: O Mistério de 1973"
         >
           [ INICIAR INVESTIGAÇÃO ]
@@ -102,6 +103,26 @@ export default function Home() {
         >
           PULAR
         </button>
+      )}
+
+      {/* Hint Popup Modal */}
+      {showPopup && (
+        <div className={styles.popupOverlay} onClick={() => setShowPopup(false)}>
+          <div className={styles.popupBox} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+            <h2 className={styles.popupTitle}>Aviso Importante</h2>
+            <p className={styles.popupText}>
+              Ao longo da investigação, você encontrará referências musicais destacadas. 
+              <strong> As músicas servirão de pistas fundamentais para ajudar você a resolver o mistério.</strong> Preste atenção nelas.
+            </p>
+            <button
+              className={styles.popupBtn}
+              onClick={() => navigate('intro')}
+              autoFocus
+            >
+              [ ENTENDI ]
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

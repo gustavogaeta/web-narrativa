@@ -1,4 +1,5 @@
 import { useGame } from '../../context/GameContext';
+
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -36,6 +37,7 @@ export default function Navbar() {
                 Créditos
               </button>
             </li>
+
             <li>
               <button
                 className={`${styles.link} ${styles.restart}`}

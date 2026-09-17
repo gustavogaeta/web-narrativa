@@ -245,3 +245,81 @@
   .controls { flex-direction: column; gap: 0.3rem; }
   .controlDivider { display: none; }
 }
+
+/* ── Popup Modal ──────────────────────────────────────── */
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 9, 7, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeInPopup 0.3s ease-out forwards;
+}
+
+.popupBox {
+  background: var(--color-ink);
+  border: 1px solid var(--color-crimson);
+  border-radius: 6px;
+  padding: 2.5rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 30px rgba(139,26,26,0.15);
+  animation: slideUpPopup 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.popupTitle {
+  font-family: var(--font-title);
+  color: var(--color-cream);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.popupText {
+  font-family: var(--font-body);
+  color: var(--color-parchment);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.popupText strong {
+  color: var(--color-yellow-old);
+  font-weight: normal;
+}
+
+.popupBtn {
+  font-family: var(--font-typewriter);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: var(--color-cream);
+  background: var(--color-crimson);
+  border: 1px solid var(--color-crimson-lt);
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.popupBtn:hover, .popupBtn:focus-visible {
+  background: var(--color-crimson-lt);
+  color: var(--color-white-paper);
+  outline: none;
+  box-shadow: 0 0 15px rgba(139, 26, 26, 0.4);
+}
+
+@keyframes fadeInPopup {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUpPopup {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
