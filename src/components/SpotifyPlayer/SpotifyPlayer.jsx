@@ -5,13 +5,13 @@ import styles from './SpotifyPlayer.module.css';
 const ALBUM_YOUTUBE_PLAYLIST = 'https://www.youtube.com/embed/videoseries?list=OLAK5uy_k3XEimExTfD-b2LIFpF_4TA3nA8ZNFT8&autoplay=1';
 
 const TRACKS = [
-  { name: 'Sangue Latino',         youtubeId: 'FqS5wG0k-Yc' },
-  { name: 'Primavera nos Dentes',  youtubeId: 'DKy4tK_HPWQ' },
-  { name: 'O Patrão Nosso de Cada Dia', youtubeId: 'A8fDMdlQVNo' },
-  { name: 'Rosa de Hiroshima',     youtubeId: 'h3GbKuWcGd8' },
-  { name: 'As Andorinhas',         youtubeId: 'l_9B_bpMmIg' },
-  { name: 'O Vira',                youtubeId: 'Y7IpBjzY0cs' },
-  { name: 'Fala',                  youtubeId: 'bz_dEJVMO4A' },
+  { name: 'Sangue Latino',              youtubeId: 'pHOwnIil_0o' },
+  { name: 'Primavera nos Dentes',       youtubeId: 'oIbled8a3lY' },
+  { name: 'O Patrão Nosso de Cada Dia', youtubeId: '7nEf7qDskUc' },
+  { name: 'Rosa de Hiroshima',          youtubeId: '7bvrMzwr4wI' },
+  { name: 'As Andorinhas',              youtubeId: 'b8gGLVNeONE' },
+  { name: 'O Vira',                     youtubeId: 'tBxf_gp2Xho' },
+  { name: 'Fala',                       youtubeId: 'IpXeo_nvEF4' },
 ];
 
 export default function MusicPlayer() {
