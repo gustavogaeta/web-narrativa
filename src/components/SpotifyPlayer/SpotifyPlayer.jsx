@@ -3,7 +3,7 @@ import styles from './SpotifyPlayer.module.css';
 
 // Álbum oficial Secos & Molhados (1973) no Spotify
 const ALBUM_EMBED_URL =
-  'https://open.spotify.com/embed/album/4rNGFFaXZ7l0Vg6QrcHcUi?utm_source=generator&theme=0';
+  'https://open.spotify.com/embed/album/4rNGFFaXZ7l0Vg6QrcHcUi?utm_source=generator&theme=0&autoplay=1';
 
 const TRACKS = [
   { name: 'Sangue Latino', id: '2DREhftHdD8pRmNdSs6nyF' },
@@ -16,7 +16,7 @@ export default function SpotifyPlayer() {
   const [selectedTrack, setSelectedTrack] = useState(null);
 
   const currentEmbed = selectedTrack
-    ? `https://open.spotify.com/embed/track/${selectedTrack.id}?utm_source=generator&theme=0`
+    ? `https://open.spotify.com/embed/track/${selectedTrack.id}?utm_source=generator&theme=0&autoplay=1`
     : ALBUM_EMBED_URL;
 
   return (
@@ -45,7 +45,7 @@ export default function SpotifyPlayer() {
               title={selectedTrack ? selectedTrack.name : 'Álbum — Secos e Molhados 1973'}
               src={currentEmbed}
               width="100%"
-              height="152"
+              height="352"
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"

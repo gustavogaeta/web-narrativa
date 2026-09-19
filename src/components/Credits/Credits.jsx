@@ -2,8 +2,8 @@ import { useGame } from '../../context/GameContext';
 import styles from './Credits.module.css';
 
 // ─── EDITE AQUI: integrantes, turma ─────────────────────────────
-const INTEGRANTES = ['[COLOCAR NOMES]'];
-const TURMA = '[COLOCAR TURMA]';
+const INTEGRANTES = ['Gustavo Gaeta', 'Ismael', 'Nicolas', 'João Pedro'];
+const TURMA = '3B';
 const ESCOLA = 'SESI SENAI';
 // ────────────────────────────────────────────────────────────────
 
