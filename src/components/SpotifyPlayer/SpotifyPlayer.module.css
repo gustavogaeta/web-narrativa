@@ -1,5 +1,5 @@
 .wrapper {
-  border: 1px solid rgba(30, 215, 96, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.2);
   border-radius: 4px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.3);
@@ -12,10 +12,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.7rem 1rem;
-  background: rgba(30, 215, 96, 0.05);
+  background: rgba(255, 0, 0, 0.05);
   border: none;
   cursor: pointer;
-  color: #1ed760;
+  color: #ff4444;
   font-family: var(--font-typewriter);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
@@ -24,7 +24,7 @@
 }
 
 .toggle:hover {
-  background: rgba(30, 215, 96, 0.1);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .vinylIcon {
@@ -72,7 +72,7 @@
   font-family: var(--font-typewriter);
   font-size: 0.6rem;
   letter-spacing: 0.15em;
-  color: rgba(30, 215, 96, 0.5);
+  color: rgba(255, 0, 0, 0.5);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
@@ -107,7 +107,7 @@
 }
 
 .trackBtn.active {
-  color: #1ed760;
+  color: #ff4444;
 }
 
 .trackBtn.noLink {
@@ -129,10 +129,10 @@
 .playable {
   margin-left: auto;
   font-size: 0.6rem;
-  color: rgba(30, 215, 96, 0.4);
+  color: rgba(255, 0, 0, 0.4);
 }
 
 .trackBtn.active .playable,
 .trackBtn:hover:not(:disabled) .playable {
-  color: rgba(30, 215, 96, 0.8);
+  color: rgba(255, 0, 0, 0.8);
 }

@@ -1,23 +1,26 @@
 import { useState } from 'react';
 import styles from './SpotifyPlayer.module.css';
 
-// Álbum oficial Secos & Molhados (1973) no Spotify
-const ALBUM_EMBED_URL =
-  'https://open.spotify.com/embed/album/4rNGFFaXZ7l0Vg6QrcHcUi?utm_source=generator&theme=0&autoplay=1';
+// Álbum Secos & Molhados (1973) — playlist YouTube completa
+const ALBUM_YOUTUBE_PLAYLIST = 'https://www.youtube.com/embed/videoseries?list=OLAK5uy_k3XEimExTfD-b2LIFpF_4TA3nA8ZNFT8&autoplay=1';
 
 const TRACKS = [
-  { name: 'Sangue Latino', id: '2DREhftHdD8pRmNdSs6nyF' },
-  { name: 'Primavera nos Dentes', id: '3wRe1E7Lc4Ah05D45YRNrT' },
-  { name: 'As Andorinhas', id: '38cKP29rg3n0Nvp9yMCdW4' },
+  { name: 'Sangue Latino',         youtubeId: 'FqS5wG0k-Yc' },
+  { name: 'Primavera nos Dentes',  youtubeId: 'DKy4tK_HPWQ' },
+  { name: 'O Patrão Nosso de Cada Dia', youtubeId: 'A8fDMdlQVNo' },
+  { name: 'Rosa de Hiroshima',     youtubeId: 'h3GbKuWcGd8' },
+  { name: 'As Andorinhas',         youtubeId: 'l_9B_bpMmIg' },
+  { name: 'O Vira',                youtubeId: 'Y7IpBjzY0cs' },
+  { name: 'Fala',                  youtubeId: 'bz_dEJVMO4A' },
 ];
 
-export default function SpotifyPlayer() {
+export default function MusicPlayer() {
   const [open, setOpen] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState(null);
 
   const currentEmbed = selectedTrack
-    ? `https://open.spotify.com/embed/track/${selectedTrack.id}?utm_source=generator&theme=0&autoplay=1`
-    : ALBUM_EMBED_URL;
+    ? `https://www.youtube.com/embed/${selectedTrack.youtubeId}?autoplay=1&rel=0`
+    : ALBUM_YOUTUBE_PLAYLIST;
 
   return (
     <section className={styles.wrapper} aria-label="Trilha sonora — Secos & Molhados 1973">
@@ -28,26 +31,28 @@ export default function SpotifyPlayer() {
         id="spotify-sidebar-toggle"
       >
         <span className={styles.vinylIcon} aria-hidden="true">
+          {/* YouTube icon */}
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
           </svg>
         </span>
-        <span className={styles.toggleLabel}>TRILHA SONORA — SECOS & MOLHADOS</span>
+        <span className={styles.toggleLabel}>TRILHA SONORA — SECOS &amp; MOLHADOS</span>
         <span className={styles.arrow} aria-hidden="true">{open ? '▲' : '▼'}</span>
       </button>
 
       {open && (
         <div className={styles.content}>
-          {/* Spotify iframe */}
+          {/* YouTube iframe */}
           <div className={styles.iframeWrapper}>
             <iframe
               key={currentEmbed}
               title={selectedTrack ? selectedTrack.name : 'Álbum — Secos e Molhados 1973'}
               src={currentEmbed}
               width="100%"
-              height="352"
+              height="200"
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              allowFullScreen
               loading="lazy"
               className={styles.spotifyFrame}
             />
@@ -69,14 +74,13 @@ export default function SpotifyPlayer() {
               {TRACKS.map((track) => (
                 <li key={track.name}>
                   <button
-                    className={`${styles.trackBtn} ${selectedTrack?.name === track.name ? styles.active : ''} ${!track.id ? styles.noLink : ''}`}
-                    onClick={() => track.id && setSelectedTrack(track)}
-                    disabled={!track.id}
-                    title={!track.id ? 'Acesse pelo álbum completo' : `Ouvir ${track.name}`}
+                    className={`${styles.trackBtn} ${selectedTrack?.name === track.name ? styles.active : ''}`}
+                    onClick={() => setSelectedTrack(track)}
+                    title={`Ouvir ${track.name}`}
                   >
-                    <span className={styles.trackDot} aria-hidden="true">{track.id ? '▸' : '·'}</span>
+                    <span className={styles.trackDot} aria-hidden="true">▸</span>
                     {track.name}
-                    {track.id && <span className={styles.playable}>▶</span>}
+                    <span className={styles.playable}>▶</span>
                   </button>
                 </li>
               ))}
